@@ -55,7 +55,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
                 }
             }
         } catch (Exception e) {
-            // token nevalidan/expired - jednostavno ne autentifikuj, nastavi dalje
         }
 
         filterChain.doFilter(request, response);
