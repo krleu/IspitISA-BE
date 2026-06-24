@@ -15,7 +15,7 @@ public class TrenerController {
     private TrenerRepository trenerRepository;
 
     @GetMapping
-    public List<Trener> getAll() {
+    public List<Trener> sviTreneri() {
         return trenerRepository.findAll();
     }
 

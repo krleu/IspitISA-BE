@@ -1,7 +1,7 @@
 package com.example.ispitisa.controller;
 
-import com.example.ispitisa.model.Trener;
-import com.example.ispitisa.repository.TrenerRepository;
+import com.example.ispitisa.model.Partija;
+import com.example.ispitisa.repository.PartijaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,23 +11,24 @@ import java.util.List;
 @RequestMapping("/api/partije")
 @CrossOrigin(origins = "http://localhost:3000")
 public class PartijaController {
+
     @Autowired
-    private TrenerRepository partijaRepository;
+    private PartijaRepository partijaRepository;
 
     @GetMapping
-    public List<Trener> getAll() {
+    public List<Partija> svePartije() {
         return partijaRepository.findAll();
     }
 
     @PostMapping
-    public Trener create(@RequestBody Trener trener) {
-        return partijaRepository.save(trener);
+    public Partija create(@RequestBody Partija partija) {
+        return partijaRepository.save(partija);
     }
 
     @PutMapping("/{id}")
-    public Trener update(@PathVariable Long id, @RequestBody Trener trener) {
-        trener.setId(id);
-        return partijaRepository.save(trener);
+    public Partija update(@PathVariable Long id, @RequestBody Partija partija) {
+        partija.setId(id);
+        return partijaRepository.save(partija);
     }
 
     @DeleteMapping("/{id}")
